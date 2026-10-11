@@ -133,9 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   if (btnAddToCalendar) {
     btnAddToCalendar.addEventListener('click', () => {
-      const title = encodeURIComponent('Nikah Ceremony: Nizar & Shifanath');
-      const details = encodeURIComponent('You are cordially invited to celebrate the blessed Nikah of Nizar B.M and Shifanath M.K followed by celebratory wedding lunch.');
-      const location = encodeURIComponent('Shadhi Mahal, Cheriyaparambu, Kerala');
+      const title = encodeURIComponent('Nikah Ceremony & Wedding Feast: Nizar & Shifanath');
+      const details = encodeURIComponent('You are cordially invited to celebrate the blessed Nikah of Nizar B.M and Shifanath M.K at Old Juma Masjid, Kottamudi, Kodagu at 12:00 PM, followed by celebratory Wedding Lunch at Shadhi Mahal, Cheriyaparambu. Gift & Hamper orders: @hamper.spot.');
+      const location = encodeURIComponent('Old Juma Masjid, Kottamudi, Kodagu & Shadhi Mahal, Cheriyaparambu');
       const start = '20261022T063000Z'; // 12:00 PM IST is 06:30 AM UTC
       const end = '20261022T103000Z';   // 4:00 PM IST
 
@@ -146,16 +146,64 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 5. COPY VENUE ADDRESS
+  // 5. VENUE TABS & COPY ADDRESSES (NIKAH & LUNCH)
   // --------------------------------------------------------------------------
-  if (btnCopyAddress) {
-    btnCopyAddress.addEventListener('click', () => {
-      const address = 'Shadhi Mahal, Cheriyaparambu, Kerala';
+  const tabNikahBtn = document.getElementById('tabNikahBtn');
+  const tabLunchBtn = document.getElementById('tabLunchBtn');
+  const paneNikah = document.getElementById('paneNikah');
+  const paneLunch = document.getElementById('paneLunch');
+
+  if (tabNikahBtn && tabLunchBtn && paneNikah && paneLunch) {
+    tabNikahBtn.addEventListener('click', () => {
+      tabNikahBtn.classList.add('active');
+      tabNikahBtn.setAttribute('aria-selected', 'true');
+      tabLunchBtn.classList.remove('active');
+      tabLunchBtn.setAttribute('aria-selected', 'false');
+
+      paneNikah.classList.add('active');
+      paneLunch.classList.remove('active');
+    });
+
+    tabLunchBtn.addEventListener('click', () => {
+      tabLunchBtn.classList.add('active');
+      tabLunchBtn.setAttribute('aria-selected', 'true');
+      tabNikahBtn.classList.remove('active');
+      tabNikahBtn.setAttribute('aria-selected', 'false');
+
+      paneLunch.classList.add('active');
+      paneNikah.classList.remove('active');
+    });
+  }
+
+  // Copy Address: Nikah (Old Juma Masjid, Kottamudi, Kodagu)
+  const btnCopyAddressNikah = document.getElementById('btnCopyAddressNikah');
+  const copyNikahText = document.getElementById('copyNikahText');
+  if (btnCopyAddressNikah) {
+    btnCopyAddressNikah.addEventListener('click', () => {
+      const address = 'Old Juma Masjid, Kottamudi, Kodagu (Coorg), Karnataka, India';
       navigator.clipboard.writeText(address).then(() => {
-        if (copyBtnText) copyBtnText.textContent = 'Address Copied! ✨';
-        showToast('Venue address copied to clipboard');
+        if (copyNikahText) copyNikahText.textContent = 'Address Copied! ✨';
+        showToast('Nikah venue address copied to clipboard');
         setTimeout(() => {
-          if (copyBtnText) copyBtnText.textContent = 'Copy Address';
+          if (copyNikahText) copyNikahText.textContent = 'Copy Address';
+        }, 3000);
+      }).catch(() => {
+        showToast('Old Juma Masjid, Kottamudi, Kodagu');
+      });
+    });
+  }
+
+  // Copy Address: Lunch (Shadhi Mahal, Cheriyaparambu)
+  const btnCopyAddressLunch = document.getElementById('btnCopyAddressLunch');
+  const copyLunchText = document.getElementById('copyLunchText');
+  if (btnCopyAddressLunch) {
+    btnCopyAddressLunch.addEventListener('click', () => {
+      const address = 'Shadhi Mahal, Cheriyaparambu, Kerala, India';
+      navigator.clipboard.writeText(address).then(() => {
+        if (copyLunchText) copyLunchText.textContent = 'Address Copied! ✨';
+        showToast('Lunch venue address copied to clipboard');
+        setTimeout(() => {
+          if (copyLunchText) copyLunchText.textContent = 'Copy Address';
         }, 3000);
       }).catch(() => {
         showToast('Shadhi Mahal, Cheriyaparambu');
