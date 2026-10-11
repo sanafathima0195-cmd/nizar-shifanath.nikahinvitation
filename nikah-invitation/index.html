@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikah Ceremony | Nizar &amp; Shifanath</title>
+  
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description" content="You are cordially invited to celebrate the blessed Nikah of Nizar B.M and Shifanath M.K on Thursday, 22 October 2026 at 12:00 PM at Shadhi Mahal, Cheriyaparambu. Lunch followed after Nikah.">
+  <meta property="og:title" content="Nikah Invitation | Nizar &amp; Shifanath">
+  <meta property="og:description" content="With love, duas and blessings of our families. 22 October 2026 · Shadhi Mahal, Cheriyaparambu.">
+  <meta property="og:image" content="assets/images/hero_garden.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Floating Falling Petals Canvas -->
+  <canvas id="petalsCanvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================================================
+       BACKGROUND AUDIO PLAYER (Kalam Eineh)
+       ========================================================================== -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="assets/audio/kalam-eineh.m4a" type="audio/mp4">
+    <source src="assets/audio/kalam-eineh.webm" type="audio/webm">
+    <source src="assets/audio/bi-saraha-clean.m4a" type="audio/mp4">
+  </audio>
+
+  <!-- ==========================================================================
+       FLOATING NAVIGATION & AUDIO CONTROLS
+       ========================================================================== -->
+  <header id="siteHeader" class="site-header" aria-label="Main Navigation">
+    <nav class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#welcome" class="nav-link" id="navWelcome">welcome</a></li>
+        <li><a href="#family" class="nav-link" id="navFamily">family</a></li>
+        <li><a href="#timings" class="nav-link" id="navTimings">timings</a></li>
+        <li><a href="#venue" class="nav-link" id="navVenue">venue</a></li>
+        <li><a href="#hampers" class="nav-link" id="navHampers">hampers</a></li>
+      </ul>
+
+      <!-- Music Pill Button: Kalam Eineh -->
+      <button id="btnToggleMusic" class="music-pill" type="button" aria-label="Toggle background music: Kalam Eineh" title="Kalam Eineh - Sherine (كلام عينيه)">
+        <span class="music-bars" aria-hidden="true">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+          <span class="bar bar-4"></span>
+        </span>
+        <span class="music-label">Kalam Eineh</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       APP CONTAINER (Mobile-First Luxury Container)
+       ========================================================================== -->
+  <div class="invitation-wrapper">
+
+    <!-- ========================================================================
+         SCREEN 1: THE SIGNATURE ARCH HERO SCREEN ("OPEN INVITATION")
+         ======================================================================== -->
+    <section id="heroScreen" class="hero-screen" aria-label="Wedding Invitation Cover">
+      <div class="hero-bg-media">
+        <img src="assets/images/hero_garden.jpg" alt="Enchanted Garden Courtyard" class="hero-img">
+        <div class="hero-vignette-overlay"></div>
+      </div>
+
+      <!-- Outer Arch Frame with Diamond Accents -->
+      <div class="hero-arch-frame">
+        <div class="arch-diamond-top" aria-hidden="true">◆</div>
+
+        <div class="hero-content">
+          <p class="bismillah-text">BISMILLAHIR RAHMANIR RAHEEM</p>
+          
+          <div class="crescent-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.324 5.324 0 0 1-4.4 2.26 5.5 5.5 0 0 1-5.5-5.5c0-1.88.94-3.53 2.38-4.52A9.13 9.13 0 0 0 12 3z"/>
+            </svg>
+          </div>
+
+          <h1 class="couple-names-hero">Nizar<br><span class="ampersand">&amp;</span><br>Shifanath</h1>
+
+          <p class="wedding-date-hero">22 &middot; 10 &middot; 2026</p>
+
+          <button id="btnOpenInvitation" class="btn-open-pill" type="button" aria-haspopup="dialog">
+            <span class="btn-text">OPEN INVITATION</span>
+            <span class="btn-glow" aria-hidden="true"></span>
+          </button>
+
+          <p class="hero-blessing-text">With love, duas and the blessings of our families</p>
+        </div>
+
+        <div class="arch-diamond-bottom" aria-hidden="true">◆</div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ENVELOPE REVEAL SECTION
+         ======================================================================== -->
+    <div id="envelopeSection" class="envelope-section">
+      <div class="envelope-container">
+        
+        <p class="together-families-text">TOGETHER WITH OUR FAMILIES</p>
+
+        <!-- Interactive 3D Envelope Box -->
+        <div id="interactiveEnvelope" class="interactive-envelope" role="button" tabindex="0" aria-label="Open wedding invitation envelope">
+          <!-- Back of envelope -->
+          <div class="envelope-back"></div>
+
+          <!-- Letter Card with Scalloped Lace Heart -->
+          <div id="envelopeLetter" class="envelope-letter">
+            <div class="lace-heart-card">
+              <!-- Scalloped Lace Heart SVG Border -->
+              <svg class="lace-heart-svg" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="laceShadow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.25)"/>
+                  </filter>
+                  <linearGradient id="sageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4e5c46" />
+                    <stop offset="100%" stop-color="#3b4834" />
+                  </linearGradient>
+                  <linearGradient id="laceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#fdf9f5" />
+                    <stop offset="50%" stop-color="#f3e7db" />
+                    <stop offset="100%" stop-color="#e8d5c4" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Outer Scalloped Lace Heart Silhouette -->
+                <path d="M160 262 C80 205, 18 152, 18 92 C18 42, 58 14, 108 14 C132 14, 150 24, 160 38 C170 24, 188 14, 212 14 C262 14, 302 42, 302 92 C302 152, 240 205, 160 262 Z"
+                      fill="url(#laceGrad)" filter="url(#laceShadow)"/>
+
+                <!-- Delicate Lace Eyelet Perforations & Scallop Beads -->
+                <path d="M160 252 C88 200, 30 148, 30 94 C30 48, 66 22, 110 22 C132 22, 150 32, 160 46 C170 32, 188 22, 210 22 C254 22, 290 48, 290 94 C290 148, 232 200, 160 252 Z"
+                      stroke="#cca783" stroke-width="2" stroke-dasharray="3,5" fill="none"/>
+
+                <!-- Inner Sage Green Heart -->
+                <path d="M160 240 C95 192, 42 144, 42 96 C42 55, 74 30, 112 30 C132 30, 150 40, 160 52 C170 40, 188 30, 208 30 C246 30, 278 55, 278 96 C278 144, 225 192, 160 240 Z"
+                      fill="url(#sageGrad)"/>
+
+                <!-- Gold Filigree Inner Lining -->
+                <path d="M160 230 C100 185, 52 140, 52 98 C52 62, 80 38, 112 38 C130 38, 148 48, 160 60 C172 48, 190 38, 208 38 C240 38, 268 62, 268 98 C268 140, 220 185, 160 230 Z"
+                      stroke="#d8bf9a" stroke-width="1.2" stroke-dasharray="2,3" fill="none" opacity="0.8"/>
+              </svg>
+
+              <!-- Names inside Lace Heart -->
+              <div class="heart-names-content">
+                <span class="heart-name">Nizar</span>
+                <span class="heart-ampersand">&amp;</span>
+                <span class="heart-name">Shifanath</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Front Pocket & Flap of Envelope -->
+          <div class="envelope-pocket">
+            <div class="envelope-bottom-fold"></div>
+            <div class="envelope-left-fold"></div>
+            <div class="envelope-right-fold"></div>
+          </div>
+
+          <div id="envelopeFlap" class="envelope-flap">
+            <!-- Wax Seal with Olive Sprig -->
+            <div id="waxSeal" class="wax-seal" title="Tap to open">
+              <svg viewBox="0 0 60 60" width="46" height="46" fill="none">
+                <circle cx="30" cy="30" r="26" fill="#eed9d3" stroke="#cca599" stroke-width="1.5"/>
+                <circle cx="30" cy="30" r="22" stroke="#cca599" stroke-width="0.8" stroke-dasharray="2 2"/>
+                <path d="M30 18 Q30 34 30 42" stroke="#a07a6e" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M30 24 Q24 22 23 26 Q25 30 30 28" fill="#a07a6e" opacity="0.8"/>
+                <path d="M30 29 Q36 27 37 31 Q35 35 30 33" fill="#a07a6e" opacity="0.8"/>
+                <path d="M30 35 Q24 34 24 38 Q26 41 30 39" fill="#a07a6e" opacity="0.8"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <p class="request-honour-text">request the honour of your presence at their Nikah</p>
+
+        <!-- Tap or Scroll Indicator -->
+        <div class="scroll-cue" aria-hidden="true">
+          <span class="scroll-cue-text">Scroll to explore</span>
+          <svg class="scroll-cue-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         MAIN INVITATION CONTENT
+         ======================================================================== -->
+    <main id="mainContent" class="main-content">
+
+      <!-- ======================================================================
+           SECTION 1: WELCOME & SACRED BLESSINGS CARD
+           ====================================================================== -->
+      <section id="welcome" class="invitation-card-section" aria-label="Welcome and Islamic Blessings">
+        <div class="arched-card">
+          <!-- Top Olive Wreath Garland SVG -->
+          <div class="botanical-arch-top" aria-hidden="true">
+            <svg viewBox="0 0 320 80" class="garland-svg" fill="none">
+              <path d="M160 55 C120 40 70 30 20 60" stroke="#7d8f74" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M160 55 C200 40 250 30 300 60" stroke="#7d8f74" stroke-width="1.5" stroke-linecap="round"/>
+              <ellipse cx="140" cy="46" rx="6" ry="3" transform="rotate(-20 140 46)" fill="#8d9f84"/>
+              <ellipse cx="120" cy="42" rx="7" ry="3.5" transform="rotate(-15 120 42)" fill="#7d8f74"/>
+              <ellipse cx="95" cy="40" rx="7" ry="3.5" transform="rotate(-5 95 40)" fill="#8d9f84"/>
+              <ellipse cx="70" cy="43" rx="7" ry="3.5" transform="rotate(10 70 43)" fill="#7d8f74"/>
+              <ellipse cx="45" cy="50" rx="6" ry="3" transform="rotate(25 45 50)" fill="#8d9f84"/>
+              <circle cx="130" cy="48" r="3" fill="#fdfaf6"/>
+              <circle cx="85" cy="44" r="3" fill="#fdfaf6"/>
+              <circle cx="55" cy="52" r="2.5" fill="#fdfaf6"/>
+              <ellipse cx="180" cy="46" rx="6" ry="3" transform="rotate(20 180 46)" fill="#8d9f84"/>
+              <ellipse cx="200" cy="42" rx="7" ry="3.5" transform="rotate(15 200 42)" fill="#7d8f74"/>
+              <ellipse cx="225" cy="40" rx="7" ry="3.5" transform="rotate(5 225 40)" fill="#8d9f84"/>
+              <ellipse cx="250" cy="43" rx="7" ry="3.5" transform="rotate(-10 250 43)" fill="#7d8f74"/>
+              <ellipse cx="275" cy="50" rx="6" ry="3" transform="rotate(-25 275 50)" fill="#8d9f84"/>
+              <circle cx="190" cy="48" r="3" fill="#fdfaf6"/>
+              <circle cx="235" cy="44" r="3" fill="#fdfaf6"/>
+              <circle cx="265" cy="52" r="2.5" fill="#fdfaf6"/>
+            </svg>
+          </div>
+
+          <!-- Quran & Rehal Medallion Vignette -->
+          <div class="quran-medallion-wrap">
+            <div class="medallion-frame">
+              <svg viewBox="0 0 100 80" class="rehal-svg" fill="none">
+                <defs>
+                  <linearGradient id="goldMedal" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#e9d6b9"/>
+                    <stop offset="50%" stop-color="#cca783"/>
+                    <stop offset="100%" stop-color="#a47d58"/>
+                  </linearGradient>
+                </defs>
+                <path d="M20 70 L20 30 Q50 5 80 30 L80 70 Z" fill="#f9f5ed" stroke="url(#goldMedal)" stroke-width="1.2"/>
+                <path d="M35 60 L65 42 M65 60 L35 42" stroke="#8c6239" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50 40 Q32 36 28 39 Q28 48 50 48 Q72 48 72 39 Q68 36 50 40 Z" fill="#fff" stroke="#caa27d" stroke-width="1.2"/>
+                <path d="M50 40 L50 48" stroke="#cca783" stroke-width="1"/>
+                <path d="M32 45 Q40 58 55 52 Q62 50 68 56" stroke="#c0a68d" stroke-width="1.5" stroke-dasharray="2,3"/>
+                <path d="M48 20 A3 3 0 0 0 52 23 A3 3 0 0 1 48 20" fill="#a47d58"/>
+                <circle cx="53" cy="19" r="0.8" fill="#a47d58"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Greeting -->
+          <h2 class="script-title">Assalamu Alaikum,<br>dear family &amp; friends</h2>
+
+          <div class="card-body-text">
+            <p>
+              With grateful hearts, our families invite you to share in the Nikah of 
+              <strong>Nizar</strong> and <strong>Shifanath</strong>.
+            </p>
+            <p class="blessing-sentence">
+              Your presence, affection and duas will make these cherished days complete.
+            </p>
+          </div>
+
+          <!-- Moon divider -->
+          <div class="crescent-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="moon-symbol">☽</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <!-- Islamic Dua -->
+          <blockquote class="islamic-dua">
+            &ldquo;May Allah bless this union with love, mercy, barakah and a lifetime of togetherness.&rdquo;
+          </blockquote>
+
+          <!-- Save the Date -->
+          <div class="save-the-date-block">
+            <p class="save-the-date-script">Save the Date</p>
+            <p class="date-caps">THURSDAY &middot; 22 OCTOBER &middot; 2026</p>
+            <p class="time-caps">12:00 PM NOON</p>
+            <p class="venue-caps">Nikah at Shadhi Mahal, Cheriyaparambu</p>
+          </div>
+
+          <!-- Bottom Olive Wreath Garland SVG -->
+          <div class="botanical-arch-bottom" aria-hidden="true">
+            <svg viewBox="0 0 320 80" class="garland-svg-bottom" fill="none">
+              <path d="M20 20 C70 50 120 60 160 45" stroke="#7d8f74" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M300 20 C250 50 200 60 160 45" stroke="#7d8f74" stroke-width="1.5" stroke-linecap="round"/>
+              <ellipse cx="45" cy="28" rx="6" ry="3" transform="rotate(-25 45 28)" fill="#8d9f84"/>
+              <ellipse cx="70" cy="35" rx="7" ry="3.5" transform="rotate(-10 70 35)" fill="#7d8f74"/>
+              <ellipse cx="95" cy="38" rx="7" ry="3.5" transform="rotate(5 95 38)" fill="#8d9f84"/>
+              <ellipse cx="120" cy="36" rx="7" ry="3.5" transform="rotate(15 120 36)" fill="#7d8f74"/>
+              <ellipse cx="140" cy="32" rx="6" ry="3" transform="rotate(20 140 32)" fill="#8d9f84"/>
+              <ellipse cx="275" cy="28" rx="6" ry="3" transform="rotate(25 275 28)" fill="#8d9f84"/>
+              <ellipse cx="250" cy="35" rx="7" ry="3.5" transform="rotate(10 250 35)" fill="#7d8f74"/>
+              <ellipse cx="225" cy="38" rx="7" ry="3.5" transform="rotate(-5 225 38)" fill="#8d9f84"/>
+              <ellipse cx="200" cy="36" rx="7" ry="3.5" transform="rotate(-15 200 36)" fill="#7d8f74"/>
+              <ellipse cx="180" cy="32" rx="6" ry="3" transform="rotate(-20 180 32)" fill="#8d9f84"/>
+              <circle cx="85" cy="34" r="3" fill="#fdfaf6"/>
+              <circle cx="130" cy="30" r="3" fill="#fdfaf6"/>
+              <circle cx="190" cy="30" r="3" fill="#fdfaf6"/>
+              <circle cx="235" cy="34" r="3" fill="#fdfaf6"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 2: THE BRIDE & GROOM AND FAMILIES (Groom's Father: Late)
+           ====================================================================== -->
+      <section id="family" class="invitation-card-section" aria-label="Bride and Groom and Parents">
+        <div class="arched-card family-card">
+          <p class="section-eyebrow">BY THE GRACE OF ALMIGHTY ALLAH</p>
+          <h2 class="script-title">The Blessed Couple</h2>
+          
+          <div class="couple-grid">
+            <!-- Groom Card -->
+            <div class="person-card groom-profile">
+              <div class="person-photo-arch">
+                <img src="assets/images/groom.jpg" alt="Groom Nizar B.M" class="person-photo" loading="lazy">
+                <div class="photo-gold-border" aria-hidden="true"></div>
+              </div>
+              <h3 class="person-name">Nizar B.M</h3>
+              <p class="person-title">THE GROOM</p>
+              <div class="parents-box">
+                <span class="parent-label">Son of</span>
+                <p class="parent-names"><span class="late-title">Late</span> Mr. Moidhu Balappil<br>&amp; Mrs. Ameena</p>
+              </div>
+            </div>
+
+            <!-- Couple Heart Centerpiece -->
+            <div class="couple-connector" aria-hidden="true">
+              <span class="connector-line"></span>
+              <span class="connector-heart">&hearts;</span>
+              <span class="connector-line"></span>
+            </div>
+
+            <!-- Bride Card -->
+            <div class="person-card bride-profile">
+              <div class="person-photo-arch">
+                <img src="assets/images/bride.jpg" alt="Bride Shifanath M.K" class="person-photo" loading="lazy">
+                <div class="photo-gold-border" aria-hidden="true"></div>
+              </div>
+              <h3 class="person-name">Shifanath M.K</h3>
+              <p class="person-title">THE BRIDE</p>
+              <div class="parents-box">
+                <span class="parent-label">Daughter of</span>
+                <p class="parent-names">Mr. Kadhar Manikal<br>&amp; Mrs. Khadija</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quran Verse on Marriage -->
+          <div class="quran-quote-box">
+            <div class="arabic-script" lang="ar" dir="rtl">
+              وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+            </div>
+            <p class="quote-translation">
+              &ldquo;And among His Signs is that He created for you mates from among yourselves, that you may find tranquility in them; and He placed between you love and mercy.&rdquo;
+            </p>
+            <span class="quote-surah">&mdash; Surah Ar-Rum (30:21)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 3: CELEBRATION TIMINGS & PROGRAM (Lunch Followed after Nikah)
+           ====================================================================== -->
+      <section id="timings" class="invitation-card-section" aria-label="Ceremony Schedule and Events">
+        <div class="arched-card events-card">
+          <!-- Top Olive Garland -->
+          <div class="botanical-arch-top" aria-hidden="true">
+            <svg viewBox="0 0 320 60" class="garland-svg" fill="none">
+              <path d="M160 45 C120 30 70 20 20 50" stroke="#7d8f74" stroke-width="1.5"/>
+              <path d="M160 45 C200 30 250 20 300 50" stroke="#7d8f74" stroke-width="1.5"/>
+              <ellipse cx="130" cy="36" rx="6" ry="3" transform="rotate(-15 130 36)" fill="#8d9f84"/>
+              <ellipse cx="190" cy="36" rx="6" ry="3" transform="rotate(15 190 36)" fill="#8d9f84"/>
+              <ellipse cx="90" cy="30" rx="6" ry="3" fill="#7d8f74"/>
+              <ellipse cx="230" cy="30" rx="6" ry="3" fill="#7d8f74"/>
+              <circle cx="110" cy="32" r="2.5" fill="#fdfaf6"/>
+              <circle cx="210" cy="32" r="2.5" fill="#fdfaf6"/>
+            </svg>
+          </div>
+
+          <h2 class="script-title">Program &amp; Timings</h2>
+          <p class="celebration-subtitle">A blessed gathering filled with tradition, family &amp; joyful memories</p>
+
+          <div class="timeline-container">
+            <!-- Event 1: The Nikah -->
+            <div class="timeline-item">
+              <div class="timeline-badge" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <p class="event-date">THURSDAY &middot; 22 OCTOBER 2026</p>
+                <p class="event-time">12:00 PM NOON</p>
+                <h3 class="event-title">THE NIKAH</h3>
+                <p class="event-desc">
+                  Witness the solemnisation of vows, surrounded by the warmth of our families and heartfelt prayers.
+                </p>
+                <span class="event-location-pill">📍 Shadhi Mahal, Cheriyaparambu</span>
+              </div>
+            </div>
+
+            <!-- Divider with crescent -->
+            <div class="crescent-divider timeline-divider" aria-hidden="true">
+              <span class="divider-line"></span>
+              <span class="moon-symbol">☽</span>
+              <span class="divider-line"></span>
+            </div>
+
+            <!-- Event 2: Lunch followed after Nikah -->
+            <div class="timeline-item">
+              <div class="timeline-badge feast-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/>
+                  <line x1="10" y1="1" x2="10" y2="4"/>
+                  <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <p class="event-date">THURSDAY &middot; 22 OCTOBER 2026</p>
+                <p class="event-time">12:30 PM ONWARDS</p>
+                <h3 class="event-title">WEDDING LUNCH RECEPTION</h3>
+                <p class="event-desc">
+                  A celebratory wedding lunch warmly hosted immediately following the Nikah solemnisation. Join us for fellowship and festive hospitality.
+                </p>
+                <span class="event-location-pill">🍽️ Banquet Hall, Shadhi Mahal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Olive Garland -->
+          <div class="botanical-arch-bottom" aria-hidden="true">
+            <svg viewBox="0 0 320 60" class="garland-svg-bottom" fill="none">
+              <path d="M20 20 C70 40 120 50 160 35" stroke="#7d8f74" stroke-width="1.5"/>
+              <path d="M300 20 C250 40 200 50 160 35" stroke="#7d8f74" stroke-width="1.5"/>
+              <ellipse cx="60" cy="30" rx="6" ry="3" fill="#8d9f84"/>
+              <ellipse cx="260" cy="30" rx="6" ry="3" fill="#8d9f84"/>
+              <circle cx="110" cy="34" r="2.5" fill="#fdfaf6"/>
+              <circle cx="210" cy="34" r="2.5" fill="#fdfaf6"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 4: LIVE COUNTDOWN & CALENDAR
+           ====================================================================== -->
+      <section class="invitation-card-section" aria-label="Countdown to Wedding">
+        <div class="arched-card countdown-card">
+          <p class="section-eyebrow">COUNTING DOWN THE DAYS</p>
+          <h2 class="script-title">Until We Say Qubool Hai</h2>
+
+          <div id="countdownGrid" class="countdown-grid" role="timer" aria-live="polite">
+            <div class="countdown-unit">
+              <span id="countDays" class="unit-number">--</span>
+              <span class="unit-label">DAYS</span>
+            </div>
+            <span class="countdown-separator" aria-hidden="true">:</span>
+            <div class="countdown-unit">
+              <span id="countHours" class="unit-number">--</span>
+              <span class="unit-label">HOURS</span>
+            </div>
+            <span class="countdown-separator" aria-hidden="true">:</span>
+            <div class="countdown-unit">
+              <span id="countMins" class="unit-number">--</span>
+              <span class="unit-label">MINUTES</span>
+            </div>
+            <span class="countdown-separator" aria-hidden="true">:</span>
+            <div class="countdown-unit">
+              <span id="countSecs" class="unit-number">--</span>
+              <span class="unit-label">SECONDS</span>
+            </div>
+          </div>
+
+          <div class="calendar-actions">
+            <button id="btnAddToCalendar" class="btn-calendar" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <span>Add to Calendar</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 5: VENUE & DIRECTIONS
+           ====================================================================== -->
+      <section id="venue" class="invitation-card-section" aria-label="Venue and Location">
+        <div class="arched-card venue-card">
+          <p class="section-eyebrow">THE DESTINATION</p>
+          <h2 class="script-title">Wedding Venue</h2>
+
+          <div class="venue-details-box">
+            <h3 class="venue-name">Shadhi Mahal</h3>
+            <p class="venue-area">Cheriyaparambu</p>
+            <p class="venue-sub">Kerala, India</p>
+
+            <div class="venue-time-badge">
+              <span class="venue-clock-icon">🕒</span>
+              <span>Ceremony starts promptly at 12:00 PM</span>
+            </div>
+          </div>
+
+          <!-- Location Map Frame -->
+          <div class="map-embed-wrapper">
+            <iframe 
+              src="https://www.google.com/maps?q=Shadhi+Mahal+Cheriyaparambu&output=embed" 
+              class="google-map-iframe" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Map location of Shadhi Mahal, Cheriyaparambu">
+            </iframe>
+          </div>
+
+          <!-- Venue Action Buttons -->
+          <div class="venue-action-buttons">
+            <a href="https://maps.google.com/?q=Shadhi+Mahal+Cheriyaparambu" target="_blank" rel="noopener noreferrer" class="btn-venue-action primary" id="btnOpenMaps">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+              <span>Open in Google Maps</span>
+            </a>
+
+            <button type="button" class="btn-venue-action secondary" id="btnCopyAddress">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span id="copyBtnText">Copy Address</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 6: INVITATION ORDERS & HAMPERS — HAMPER SPOT
+           ====================================================================== -->
+      <section id="hampers" class="invitation-card-section" aria-label="Hamper Spot Custom Invitations and Hampers">
+        <div class="arched-card hamper-spot-card">
+          <!-- Top Olive Garland -->
+          <div class="botanical-arch-top" aria-hidden="true">
+            <svg viewBox="0 0 320 60" class="garland-svg" fill="none">
+              <path d="M160 45 C120 30 70 20 20 50" stroke="#7d8f74" stroke-width="1.5"/>
+              <path d="M160 45 C200 30 250 20 300 50" stroke="#7d8f74" stroke-width="1.5"/>
+              <ellipse cx="130" cy="36" rx="6" ry="3" fill="#8d9f84"/>
+              <ellipse cx="190" cy="36" rx="6" ry="3" fill="#8d9f84"/>
+              <circle cx="110" cy="32" r="2.5" fill="#fdfaf6"/>
+              <circle cx="210" cy="32" r="2.5" fill="#fdfaf6"/>
+            </svg>
+          </div>
+
+          <p class="section-eyebrow">CUSTOM INVITATIONS &amp; LUXURY GIFTING</p>
+          <h2 class="script-title">Hamper Spot</h2>
+          
+          <p class="hamper-tagline">
+            Crafting unforgettable digital wedding invitations &amp; bespoke luxury hampers with warmth and elegance.
+          </p>
+
+          <!-- Hamper Offerings Grid -->
+          <div class="hamper-features-grid">
+            <div class="hamper-feature-pill">
+              <span class="feature-icon">✨</span>
+              <span class="feature-title">Digital Invitations</span>
+            </div>
+            <div class="hamper-feature-pill">
+              <span class="feature-icon">🎁</span>
+              <span class="feature-title">Wedding Hampers</span>
+            </div>
+            <div class="hamper-feature-pill">
+              <span class="feature-icon">🎀</span>
+              <span class="feature-title">Trousseau &amp; Favors</span>
+            </div>
+            <div class="hamper-feature-pill">
+              <span class="feature-icon">💌</span>
+              <span class="feature-title">Custom Gift Boxes</span>
+            </div>
+          </div>
+
+          <div class="hamper-cta-box">
+            <p class="hamper-prompt-text">Love this invitation? Order yours for your special day!</p>
+            
+            <a href="https://www.instagram.com/hamper.spot?xtok=aG1zZnZma3k3bDJi&utm_source=qr" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-hamper-instagram"
+               id="btnHamperInstagram">
+              <!-- Instagram Gradient Logo SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span>Visit @hamper.spot on Instagram</span>
+              <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+
+            <span class="instagram-handle-sub">DM on Instagram for custom orders &amp; inquiries</span>
+          </div>
+
+          <!-- Bottom Olive Garland -->
+          <div class="botanical-arch-bottom" aria-hidden="true">
+            <svg viewBox="0 0 320 60" class="garland-svg-bottom" fill="none">
+              <path d="M20 20 C70 40 120 50 160 35" stroke="#7d8f74" stroke-width="1.5"/>
+              <path d="M300 20 C250 40 200 50 160 35" stroke="#7d8f74" stroke-width="1.5"/>
+              <ellipse cx="60" cy="30" rx="6" ry="3" fill="#8d9f84"/>
+              <ellipse cx="260" cy="30" rx="6" ry="3" fill="#8d9f84"/>
+              <circle cx="110" cy="34" r="2.5" fill="#fdfaf6"/>
+              <circle cx="210" cy="34" r="2.5" fill="#fdfaf6"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SECTION 7: CLOSING FAMILY BLESSINGS (STUNNING COLOR PALETTE - NO IMAGE)
+           ====================================================================== -->
+      <section class="night-courtyard-section color-only-closing" aria-label="Closing Duas and Family Blessings">
+        
+        <!-- Glowing Crescent & Lantern Decorative Motif -->
+        <div class="closing-celestial-motif" aria-hidden="true">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" class="celestial-crescent-svg">
+            <defs>
+              <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff6ea"/>
+                <stop offset="50%" stop-color="#ecd5ba"/>
+                <stop offset="100%" stop-color="#cca783"/>
+              </linearGradient>
+              <filter id="softGlow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <!-- Crescent Moon -->
+            <path d="M30 10 A20 20 0 1 0 50 40 A15 15 0 0 1 30 10 Z" fill="url(#goldGlow)" filter="url(#softGlow)" opacity="0.95"/>
+            <!-- Radiant Star Sparkles -->
+            <polygon points="46,18 48,22 52,24 48,26 46,30 44,26 40,24 44,22" fill="#fffdfa"/>
+            <circle cx="22" cy="18" r="1.5" fill="#faede8" opacity="0.7"/>
+            <circle cx="16" cy="32" r="1.2" fill="#faede8" opacity="0.6"/>
+            <circle cx="48" cy="42" r="1.5" fill="#faede8" opacity="0.7"/>
+          </svg>
+        </div>
+
+        <div class="night-content-card">
+          <p class="night-dua-text">
+            Your presence is part of our joy. Please keep Nizar and Shifanath in your duas as they begin this beautiful new chapter together.
+          </p>
+
+          <p class="with-love-script">With love,</p>
+          <p class="closing-couple-names">Nizar &amp; Shifanath</p>
+
+          <p class="closing-footer-date">22 &middot; 10 &middot; 2026 &middot; CHERIYAPARAMBU</p>
+
+          <button id="btnScrollToTop" class="btn-back-to-top" type="button" aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 15l-6-6-6 6"/>
+            </svg>
+            <span>Return to Top</span>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-notification" role="status" aria-live="polite" hidden></div>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
